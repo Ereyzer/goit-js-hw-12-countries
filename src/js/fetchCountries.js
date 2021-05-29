@@ -1,33 +1,30 @@
 // import '@pnotify/core/dist/BrightTheme.css';
 import PNotify, { notice, info, alert, success, error } from '@pnotify/core';
+import { functions, reject } from 'lodash';
 
 const BASE_URL =  'https://restcountries.eu/rest/v2/';
 
+
 export default function fetchCountries(searchQuery) {
-    return fetch(`${BASE_URL}name/${searchQuery}`)
-    .then(response => response.json())
-    .then((r)=>{
-        if(r.length > 10){
-            return minTenNotify();
-        }  
-        console.log(r);
-        return r;
+
+    const fetchPromise = () => new Promise((resolve, reject)=>{
+         fetch(`${BASE_URL}name/${searchQuery}`)
+        .then(response => response.json())
+        .then((response)=>{
+            if(response.length > 10){
+                return reject('We have more ten results. Please enter more characters!');
+            }
+            if(response.status === 404){
+                return reject('no EXIST');
+            }   
+            resolve(response);   
+        }).catch(errorEntries)
     })
-    .catch(errorEntries);
+    return fetchPromise().catch(errorEntries)
 }
 
-function errorEntries(params) {
-    error({
-        text: 'please enter more characters!'
-    })
-    return 404;
-}
-
-function name(params) {
-    alert('hello');
-}
-function minTenNotify(r) {
-    notice({
-        text: 'повна хуйня2!'
-    })
+function errorEntries(text) {
+    return   error({
+        text: `${text}`
+    });
 }
