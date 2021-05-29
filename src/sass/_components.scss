@@ -1,7 +1,56 @@
 body {
     background-image: url("../images/bg-pattern.png");
+    text-align: center;
+}
+
+h1 {
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    
+    width: 600px;
+    height: 40px;
+    border: 50px, black;
+    border-radius: 30px;
+
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    padding: 5px;
+
+    &_title {
+        text-align: center;
+        font-weight: 900;
+        max-width: 500px;
+    }
 }
 
 .flag {
     max-width: 300px;
+}
+
+.info-block {
+ display: flex;
+
+    &_paragraph {
+        font-weight: 700;
+    }
+
+    &_context{
+font-weight: 500;
+    }
+}
+
+.flag-block {
+    margin-left: 10px;
 }

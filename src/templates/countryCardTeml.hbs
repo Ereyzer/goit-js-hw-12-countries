@@ -1,28 +1,30 @@
 {{#each this}}
-<div>
-    <h2>
+<div class="card">
+    <h2 class="card_title">
         {{this.name}}
     </h2>
-    <div>
-        <p>Capital: <span>{{this.capital}}</span></p>
-        <p>Population: <span>{{this.population}}</span></p>
-        <p>Languages: 
+    <div class="info-block">
+            <div>
+        <p class="info-block_paragraph">Capital: <span class="info-block_context">{{this.capital}}</span></p>
+        <p class="info-block_paragraph">Population: <span class="info-block_context">{{this.population}}</span></p>
+        <p class="info-block_paragraph">Languages: 
             {{#each languages}}
                 <Ul>
-                    <li>{{this.name}}</li>
+                    <li class="info-block_context">{{this.name}}</li>
                 </Ul>
             {{/each}}
         </p>
-        <p>Currencies: 
+        <p class="info-block_paragraph">Currencies: 
             {{#each currencies}}
             <ul>
-                <li><span>{{this.code}}</span> : {{this.name}}</li>
+                <li><span class="info-block_context">{{this.code}}</span> : {{this.name}}</li>
             </ul>
             {{/each}}
         </p>
     </div>
-    <div>
+    <div class="flag-block">
         <img src="{{this.flag}}" alt="{{this.name}}" class="flag">
+    </div>
     </div>
 </div>
 {{/each}}
