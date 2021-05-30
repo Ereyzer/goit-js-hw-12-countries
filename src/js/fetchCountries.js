@@ -1,21 +1,10 @@
-// import '@pnotify/core/dist/BrightTheme.css';
-
-import { functions, reject } from 'lodash';
-
-
 const BASE_URL =  'https://restcountries.eu/rest/v2/';
-
 
 export default function fetchCountries(searchQuery) {
         return fetch(`${BASE_URL}name/${searchQuery}`)
         .then(response => response.json()).catch(console.error)
     }
 
-function errorEntries(text) {
-    return   error({
-        text: `${text}`
-    });
-}
 
 
 

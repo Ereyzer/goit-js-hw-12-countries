@@ -22,7 +22,6 @@ const refs ={
     function getInputValue(e) {
         const searchQuery = e.target.value.trim();  
         if (!searchQuery)return;
-        // const debounced = _.debounce(makeCards, 500);
         refs.container.innerHTML = '';
         refs.list.innerHTML = '';
         fetchCountries(searchQuery)
