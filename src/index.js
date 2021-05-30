@@ -1,7 +1,7 @@
 import './sass/main.scss';
 import '@pnotify/core/dist/BrightTheme.css';
 
-import PNotify, { notice, info, alert, success, error } from '@pnotify/core';
+import PNotify, { notice, info, alert, success, error, close } from '@pnotify/core';
 
 import countryCardTeml from './templates/countryCardTeml.hbs';
 import listTemplate from './templates/list.hbs';
@@ -40,20 +40,25 @@ const refs ={
 
     function errorEntries(text) {
         return   error({
-            text: `${text}`
+            text: `${text}`,
+            delay: 800
         });
     }
 
     function makeList(list) {
         refs.list.innerHTML = `${listTemplate(list)}`;
+        // if(list.length <= 10){
+        //     close({
+        //         destroy: true
+        //     })
+        // }
         countries = [...list];
         return list;
     }
 
     function makeCards(ArrOfCountries) {
-        if(!Array.isArray(ArrOfCountries)){
-            return;
-        }
+        if(!Array.isArray(ArrOfCountries))return;
+        
         refs.container.insertAdjacentHTML( 'beforeend', countryCardTeml(ArrOfCountries));
     }
 
@@ -70,5 +75,4 @@ const refs ={
         return;
     }
 
-    
 
