@@ -19,6 +19,18 @@ input {
 
 }
 
+.list {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    li {
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .container {
     position: relative;
     display: flex;
