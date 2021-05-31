@@ -27,6 +27,14 @@ const refs ={
         fetchCountries(searchQuery)
         .then(testRes)
         .then(makeList)
+        // .then((res)=>{
+        //     // console.log(res[0].name)
+        //     // if (res.length === 1) {
+        //     //     console.log(res)
+        //     //     makeCards(res);
+        //     //     refs.list.innerHTML ='';
+        //     // }
+        // })
         .catch(errorEntries)
     }
 
@@ -34,6 +42,10 @@ const refs ={
         if(res.length > 10)throw new Error('We have more ten results. Please enter more characters!');
 
         if(res.status === 404)throw new Error('no EXIST');
+        if (res.length === 1) {
+           return makeCards(res);
+            refs.list.innerHTML ='';
+        }
 
          return res;
     }
@@ -47,11 +59,6 @@ const refs ={
 
     function makeList(list) {
         refs.list.innerHTML = `${listTemplate(list)}`;
-        // if(list.length <= 10){
-        //     close({
-        //         destroy: true
-        //     })
-        // }
         countries = [...list];
         return list;
     }
