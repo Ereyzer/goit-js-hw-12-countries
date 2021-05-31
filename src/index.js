@@ -27,34 +27,27 @@ const refs ={
         fetchCountries(searchQuery)
         .then(testRes)
         .then(makeList)
-        // .then((res)=>{
-        //     // console.log(res[0].name)
-        //     // if (res.length === 1) {
-        //     //     console.log(res)
-        //     //     makeCards(res);
-        //     //     refs.list.innerHTML ='';
-        //     // }
-        // })
         .catch(errorEntries)
+        .then((res)=>{
+            if (res.length === 1) {
+                refs.list.innerHTML ='';
+                return makeCards(res);
+             }
+        })
     }
 
     function testRes(res) {
         if(res.length > 10)throw new Error('We have more ten results. Please enter more characters!');
-
         if(res.status === 404)throw new Error('no EXIST');
-        if (res.length === 1) {
-           return makeCards(res);
-            refs.list.innerHTML ='';
-        }
-
          return res;
     }
 
     function errorEntries(text) {
-        return   error({
+           error({
             text: `${text}`,
             delay: 800
         });
+        return text;
     }
 
     function makeList(list) {
