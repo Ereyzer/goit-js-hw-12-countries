@@ -27,13 +27,14 @@ const refs ={
         fetchCountries(searchQuery)
         .then(testRes)
         .then(makeList)
-        .catch(errorEntries)
         .then((res)=>{
             if (res.length === 1) {
                 refs.list.innerHTML ='';
                 return makeCards(res);
              }
         })
+        .catch(errorEntries)
+
     }
 
     function testRes(res) {
