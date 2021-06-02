@@ -1,5 +1,6 @@
 import './sass/main.scss';
 import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/core/dist/PNotify.css';
 
 import PNotify, { notice, info, alert, success, error, close } from '@pnotify/core';
 
@@ -76,4 +77,4 @@ const refs ={
         return;
     }
 
-
+   

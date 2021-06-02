@@ -7,36 +7,6 @@ export default function fetchCountries(searchQuery) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // const BASE_URL =  'https://restcountries.eu/rest/v2/';
 
 
