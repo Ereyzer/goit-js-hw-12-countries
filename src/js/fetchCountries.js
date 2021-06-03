@@ -1,11 +1,20 @@
 const BASE_URL =  'https://restcountries.eu/rest/v2/';
 
-export default function fetchCountries(searchQuery) {
-        return fetch(`${BASE_URL}name/${searchQuery}`)
-        .then(response => response.json()).catch(console.error)
+export default async function fetchCountries(searchQuery) {
+        const response = await fetch(`${BASE_URL}name/${searchQuery}`)
+        return await response.json();
+        
     }
 
 
+    //!стфрий спосіб
+
+    // export default function fetchCountries(searchQuery) {
+    //     return fetch(`${BASE_URL}name/${searchQuery}`)
+    //     .then(response => response.json()).catch(console.error)
+    // }
+
+  //* дурний спосіб
 
 // const BASE_URL =  'https://restcountries.eu/rest/v2/';
 
